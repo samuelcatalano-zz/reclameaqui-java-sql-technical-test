@@ -26,4 +26,7 @@ public interface ComplaintRepository extends CrudRepository<Complaint,Long>{
 	
 	@Query("SELECT c FROM Complaint c WHERE c.city.state = :state")
 	List<Complaint> findByState(@Param("state") String state);
+	
+	@Query("SELECT c FROM Complaint c WHERE c.company.name = :company")
+	List<Complaint> findByCompany(@Param("company") String company);
 }

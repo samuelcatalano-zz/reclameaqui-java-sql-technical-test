@@ -65,6 +65,15 @@ public class ComplaintService{
 	}
 	
 	/**
+	 * Find by company.
+	 * @param company the company
+	 * @return List of {@link Complaint}
+	 */
+	public List<Complaint> findByCompany(final String company) {
+		return this.repository.findByCompany(company);
+	}
+	
+	/**
 	 * Find all complaints.
 	 * @return all complaints
 	 */

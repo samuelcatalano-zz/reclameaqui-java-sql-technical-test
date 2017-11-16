@@ -142,4 +142,22 @@ public class ReclameAquiApplicationController{
 		
 		return ResponseEntity.ok(new ResponseDto(dtos.size(), dtos));
 	}
+	
+	/**
+	 * Get all complaints by company.
+	 * @return list of complaints
+	 */
+	@GET
+	@RequestMapping("/allByCompany/{company}")
+	@ResponseBody
+	public ResponseEntity getAllByCompany(@PathVariable(value = "company") final String company) {
+		final List<ComplaintDto> dtos = new ArrayList<>();
+		final List<Complaint> complaints = this.complaintService.findByCompany(company);
+		
+		for(final Complaint complaint : complaints){
+			dtos.add(this.mapper.map(complaint, ComplaintDto.class));
+		}
+		
+		return ResponseEntity.ok(new ResponseDto(dtos.size(), dtos));
+	}
 }
