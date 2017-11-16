@@ -25,4 +25,18 @@ public class Company implements Serializable {
 	@Getter
 	@Setter
 	private String name;
+	
+	/**
+	 * Default constructor
+	 */
+	public Company() {
+	}
+	
+	/**
+	 * Constructor with parameters
+	 */
+	public Company(Long id, String name) {
+		this.id = id;
+		this.name = name;
+	}
 }

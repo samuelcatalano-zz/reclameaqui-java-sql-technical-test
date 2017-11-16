@@ -30,4 +30,19 @@ public class City implements Serializable {
 	@Getter
 	@Setter
 	private String state;
+	
+	/**
+	 * Default constructor
+	 */
+	public City() {
+	}
+	
+	/**
+	 * Constructor with parameters
+	 */
+	public City(Long id, String name, String state){
+		this.id = id;
+		this.name = name;
+		this.state = state;
+	}
 }
