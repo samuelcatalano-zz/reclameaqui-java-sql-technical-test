@@ -4,6 +4,7 @@ import com.br.reclameaqui.model.City;
 import com.br.reclameaqui.repository.CityRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,10 +15,10 @@ import java.util.List;
 
 @Service
 @Slf4j
-@RequiredArgsConstructor
 public class CityService{
-	
-	private final CityRepository repository;
+
+	@Autowired
+	private CityRepository repository;
 	
 	/**
 	 * Find by name

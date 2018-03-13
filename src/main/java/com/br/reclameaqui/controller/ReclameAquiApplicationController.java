@@ -7,6 +7,7 @@ import com.br.reclameaqui.service.ComplaintService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -24,16 +25,18 @@ import java.util.List;
  */
 
 @Slf4j
-@RequiredArgsConstructor
 @RestController
 @RequestMapping(value = "/reclameaqui")
 @Transactional
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class ReclameAquiApplicationController{
-	
-	private final ModelMapper mapper;
-	private final ComplaintService complaintService;
+
+    @Autowired
+	private ModelMapper mapper;
+
+    @Autowired
+	private ComplaintService complaintService;
 	
 	/**
 	 * Save new Complaint.
@@ -49,7 +52,6 @@ public class ReclameAquiApplicationController{
 		
 		dtos.add(dto);
 		final ResponseDto response = new ResponseDto(1, dtos);
-		
 		return ResponseEntity.ok(response);
 	}
 	
@@ -67,7 +69,6 @@ public class ReclameAquiApplicationController{
 		for(final Complaint complaint : complaints){
 			dtos.add(this.mapper.map(complaint, ComplaintDto.class));
 		}
-		
 		return ResponseEntity.ok(new ResponseDto(dtos.size(), dtos));
 	}
 	
@@ -85,7 +86,6 @@ public class ReclameAquiApplicationController{
 		for(final Complaint complaint : complaints){
 			dtos.add(this.mapper.map(complaint, ComplaintDto.class));
 		}
-		
 		return ResponseEntity.ok(new ResponseDto(dtos.size(), dtos));
 	}
 	
@@ -103,7 +103,6 @@ public class ReclameAquiApplicationController{
 		for(final Complaint complaint : complaints){
 			dtos.add(this.mapper.map(complaint, ComplaintDto.class));
 		}
-		
 		return ResponseEntity.ok(new ResponseDto(dtos.size(), dtos));
 	}
 	
@@ -121,7 +120,6 @@ public class ReclameAquiApplicationController{
 		for(final Complaint complaint : complaints){
 			dtos.add(this.mapper.map(complaint, ComplaintDto.class));
 		}
-		
 		return ResponseEntity.ok(new ResponseDto(dtos.size(), dtos));
 	}
 	
@@ -139,7 +137,6 @@ public class ReclameAquiApplicationController{
 		for(final Complaint complaint : complaints){
 			dtos.add(this.mapper.map(complaint, ComplaintDto.class));
 		}
-		
 		return ResponseEntity.ok(new ResponseDto(dtos.size(), dtos));
 	}
 	
@@ -157,7 +154,6 @@ public class ReclameAquiApplicationController{
 		for(final Complaint complaint : complaints){
 			dtos.add(this.mapper.map(complaint, ComplaintDto.class));
 		}
-		
 		return ResponseEntity.ok(new ResponseDto(dtos.size(), dtos));
 	}
 }
